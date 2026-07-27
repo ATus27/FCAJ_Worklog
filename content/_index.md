@@ -23,7 +23,7 @@ chapter: false
 
 &emsp; **Major:** Information Technology
 
-&emsp; **Class:** AWS082025
+&emsp; **Class:** DCT1221
 
 &emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
 
@@ -31,7 +31,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 18/06/2025 to 22/08/2025
 
-![Your profile picture](images/avatar.jpg)
+<img src="images/avatar.jpg" alt="Your profile picture" class="avatar">
 
 ### Report Content
 
