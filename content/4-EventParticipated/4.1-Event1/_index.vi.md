@@ -6,25 +6,18 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-# Bài thu hoạch “FCAJ Community Day Data Driven, AI RISEN”
-
-### Mục Đích Của Sự Kiện
-
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+# Bài thu hoạch “FCAJ Community Day - June 2026 ”
+### Chủ đề chính
+Data Driven, AI RISEN
+### Sự kiện diễn ra
+Thời gian: 9:00 - 12:00, Thứ 7, 27/06/2026 Địa điểm: Tầng 36, Bitexco Financial Tower, 2 Đ. Hải Triều, Sài Gòn, Hồ Chí Minh 700000, Việt Nam.
 
 ### Danh Sách Diễn Giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
-
+- **Steve Tran** - Founder of Cloud Thinhker
+- **Trung Vu** - CEO Revve AI 
+- **Kiet Tran** - AI Engineer
+- **Hieu Nghi** - Revona Cloud
 ### Nội Dung Nổi Bật
 
 #### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
