@@ -183,11 +183,11 @@ Buổi chia sẻ **FCAJ Community Day - June 2026** đã mang lại cho em một
 
 #### Một số hình ảnh khi tham gia sự kiện
 
-<img src="/static/images/4-EventParticipated/event1_01.jpg" alt="Hình ảnh tham gia sự kiện 1" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+<img src="/images/4-EventParticipated/event1_01.jpg" alt="Hình ảnh tham gia sự kiện 1" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 
-<img src="/static/images/4-EventParticipated/event1_02.jpg" alt="Hình ảnh tham gia sự kiện 2" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+<img src="/images/4-EventParticipated/event1_02.jpg" alt="Hình ảnh tham gia sự kiện 2" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 
-<img src="/static/images/4-EventParticipated/event1_03.jpg" alt="Hình ảnh tham gia sự kiện 3" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+<img src="/images/4-EventParticipated/event1_03.jpg" alt="Hình ảnh tham gia sự kiện 3" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
 
 
 
