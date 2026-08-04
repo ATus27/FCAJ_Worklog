@@ -122,11 +122,11 @@ Attending the **“GenAI-powered App-DB Modernization”** workshop was extremel
 
 #### Some event photos
 
-<img src="/images/4-EventParticipated/event1_01.jpg" alt="Event photo 1" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-
-<img src="/images/4-EventParticipated/event1_02.jpg" alt="Event photo 2" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-
-<img src="/images/4-EventParticipated/event1_03.jpg" alt="Event photo 3" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+<div style="display: flex; gap: 12px; justify-content: space-between; align-items: center; margin: 15px 0;">
+  <img src="/images/4-EventParticipated/event1_01.jpg" alt="Event photo 1" style="width: 32%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); object-fit: cover;" />
+  <img src="/images/4-EventParticipated/event1_02.jpg" alt="Event photo 2" style="width: 32%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); object-fit: cover;" />
+  <img src="/images/4-EventParticipated/event1_03.jpg" alt="Event photo 3" style="width: 32%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); object-fit: cover;" />
+</div>
 
 
 > Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.

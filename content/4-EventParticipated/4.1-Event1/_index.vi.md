@@ -11,7 +11,7 @@ pre: " <b> 4.1. </b> "
 ### 1. Tổng quan về sự kiện
 - **Chủ đề chính**: Data Driven, AI RISEN
 - **Thời gian**: 9:00 - 12:00, Thứ 7, ngày 27 tháng 6 năm 2026
-- **Địa điểm**: Tầng 36, Bitexco Financial Tower, 2 Đ. Hải Triều, Sài Gòn, Hồ Chí Minh.
+- **Địa điểm**: Tầng 26, 36, Bitexco Financial Tower, 2 Đ. Hải Triều, Sài Gòn, Hồ Chí Minh.
 
 ### 2. Danh sách diễn giả
 - **Steve Tran** - Founder of CloudThinker
@@ -183,11 +183,11 @@ Buổi chia sẻ **FCAJ Community Day - June 2026** đã mang lại cho em một
 
 #### Một số hình ảnh khi tham gia sự kiện
 
-<img src="/images/4-EventParticipated/event1_01.jpg" alt="Hình ảnh tham gia sự kiện 1" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-
-<img src="/images/4-EventParticipated/event1_02.jpg" alt="Hình ảnh tham gia sự kiện 2" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-
-<img src="/images/4-EventParticipated/event1_03.jpg" alt="Hình ảnh tham gia sự kiện 3" style="max-width: 100%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+<div style="display: flex; gap: 12px; justify-content: space-between; align-items: center; margin: 15px 0;">
+  <img src="/images/4-EventParticipated/event1_01.jpg" alt="Hình ảnh tham gia sự kiện 1" style="width: 32%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); object-fit: cover;" />
+  <img src="/images/4-EventParticipated/event1_02.jpg" alt="Hình ảnh tham gia sự kiện 2" style="width: 32%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); object-fit: cover;" />
+  <img src="/images/4-EventParticipated/event1_03.jpg" alt="Hình ảnh tham gia sự kiện 3" style="width: 32%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); object-fit: cover;" />
+</div>
 
 
 
