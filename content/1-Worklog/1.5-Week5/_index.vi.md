@@ -6,51 +6,24 @@ chapter: false
 pre: " <b> 1.5. </b> "
 ---
 
-
 ### Mục tiêu tuần 5:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Khởi tạo hạ tầng Vector Database với Amazon OpenSearch Serverless (AOSS).
+* Thực hiện thuật toán phân đoạn văn bản (Text Chunking).
+* Tích hợp Amazon Bedrock Titan Embeddings để tạo Vector 1536 chiều và lập chỉ mục (Indexing) vào OpenSearch Serverless (Hoàn thiện Luồng 1 - Data Ingestion).
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Tìm hiểu dịch vụ **Amazon OpenSearch Serverless (AOSS)** Vector Search Collection.<br>- Viết Terraform triển khai AOSS Collection, Security Policy, Encryption Policy và Network Access Policy.<br>- Cấu hình IAM Data Access Policy cho phép Lambda truy cập AOSS. | 20/07/2026 | 20/07/2026 | Workshop Section 5.3 |
+| 3 | - Tìm hiểu chiến lược phân đoạn văn bản (**Chunking Strategy**): Overlapping Chunks, Fixed-size Chunking (ví dụ: 512 tokens, overlap 50 tokens).<br>- Lập trình module Chunking bằng Python trong Lambda. | 21/07/2026 | 21/07/2026 | Workshop Section 5.3 |
+| 4 | - Tìm hiểu và tích hợp model **Amazon Titan Text Embeddings v1** (`amazon.titan-embed-text-v1`).<br>- Gọi API Bedrock trong Lambda để chuyển các đoạn văn bản thành các vector 1536 chiều. | 22/07/2026 | 22/07/2026 | Workshop Section 5.3 |
+| 5 | - Tạo OpenSearch Vector Index với k-NN vector field type (Distance metric: Cosine / HNSW).<br>- Đẩy danh sách vector cùng metadata (source_file, chunk_id, text_content, page) vào OpenSearch Index. | 23/07/2026 | 23/07/2026 | Workshop Section 5.3 |
+| 6 | - **Kiểm thử End-to-End Luồng 1**: Upload tài liệu phức tạp (file scan nhiều trang) ➔ Xác nhận dữ liệu vector được lập chỉ mục thành công trong OpenSearch Serverless. | 24/07/2026 | 24/07/2026 | Workshop Section 5.3 & 5.10 |
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Làm chủ Vector Database Serverless**: Triển khai thành công Amazon OpenSearch Serverless bằng Terraform kèm các chính sách bảo mật mạng và phân quyền dữ liệu (Data Access Policy).
+* **Xử lý ngữ nghĩa dữ liệu**: Nắm vững kỹ thuật Text Chunking và tạo nhúng vector với Amazon Titan Embeddings v1 trên Bedrock.
+* **Hoàn chỉnh Pipeline Ingestion**: Tự động hóa 100% quy trình từ khi upload tài liệu thô trên S3 cho đến khi dữ liệu được số hóa, vector hóa và lưu trữ sẵn sàng cho tìm kiếm ngữ nghĩa.

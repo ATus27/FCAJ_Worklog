@@ -6,50 +6,24 @@ chapter: false
 pre: " <b> 1.6. </b> "
 ---
 
-
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai Luồng 2 (Hỏi đáp Realtime): Xây dựng bộ nhớ đệm ngữ nghĩa Semantic Cache với ElastiCache Serverless.
+* Tích hợp tìm kiếm Vector k-NN trên OpenSearch Serverless và sinh câu trả lời tự nhiên với Amazon Bedrock (Claude 3).
+* Cấu hình Amazon Bedrock Guardrails, lưu trữ Chat History trên DynamoDB và bảo mật Endpoint bằng API Gateway & Cognito.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Triển khai **Amazon ElastiCache Serverless** (Redis) làm lớp **Semantic Cache**.<br>- Xây dựng cơ chế tính Embedding câu hỏi mới ➔ So sánh khoảng cách vector trong Redis Cache. Nếu khớp câu hỏi cũ (Similarity >= 0.90) ➔ Trả về câu trả lời ngay lập tức (Bypass LLM). | 27/07/2026 | 27/07/2026 | Workshop Section 5.4 |
+| 3 | - Nếu Cache Miss: Thực hiện Vector Search k-NN trên OpenSearch Serverless dựa vào embedding câu hỏi ➔ Trích xuất Top-K đoạn ngữ cảnh (context) liên quan nhất. | 28/07/2026 | 28/07/2026 | Workshop Section 5.4 |
+| 4 | - Tích hợp **Amazon Bedrock (Claude 3 Haiku / Sonnet)** để tạo câu trả lời dựa trên ngữ cảnh đã trích xuất.<br>- Cấu hình **Amazon Bedrock Guardrails**: Thiết lập PII Redaction, Topic Blocking, Content Filtering và chống Prompt Injection. | 29/07/2026 | 29/07/2026 | Workshop Section 5.4 |
+| 5 | - Tạo bảng **Amazon DynamoDB** lưu lịch sử hội thoại (Chat History) theo `SessionId` và `Timestamp`.<br>- Triển khai **Amazon API Gateway** + **Amazon Cognito User Pool** để bảo mật các Endpoint API hỏi đáp. | 30/07/2026 | 30/07/2026 | Workshop Section 5.4 |
+| 6 | - **Kiểm thử Luồng 2**: Gửi câu hỏi qua Postman/AWS CLI, kiểm tra tốc độ phản hồi khi Hit Cache vs. Miss Cache, thử nghiệm nhập prompt độc hại để kiểm tra Bedrock Guardrails. | 31/07/2026 | 31/07/2026 | Workshop Section 5.4 & 5.10 |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* **Tối ưu hóa hiệu năng & Chi phí với Semantic Cache**: Thiết lập bộ đệm ngữ nghĩa trên ElastiCache Serverless giúp phản hồi các câu hỏi lặp lại tức thì và tiết kiệm chi phí gọi LLM.
+* **Xây dựng RAG Pipeline hoàn chỉnh**: Kết nối thành công Vector Retrieval từ OpenSearch Serverless với mô hình Claude 3 trên Bedrock.
+* **Bảo mật & Kiểm soát nội dung**: Thiết lập lớp Bedrock Guardrails chống rò rỉ dữ liệu PII / Prompt Injection, đồng thời quản lý lịch sử hội thoại trên DynamoDB và xác thực qua Cognito API Gateway.
