@@ -32,7 +32,7 @@ Sau mỗi lần, kiểm tra theo đúng thứ tự:
 
 ##### Hình 3: Kết quả test end-to-end với file png
 
-- Với file png thì  sẽ gửi nguyên dạng (base64) để document-processor chạy Textract OCR — không hiển thị được dạng text ở hộp thoại upload
+- Với file png thì sẽ gửi nguyên dạng (base64) để document-processor chạy Textract OCR — không hiển thị được dạng text ở hộp thoại upload
 ![Kết quả test end-to-end với file png](/images/5-Workshop/5.3-Data-Ingestion/image5.3.6-3.png)
 
 ##### Hình 4: Kết quả test end-to-end với file md
