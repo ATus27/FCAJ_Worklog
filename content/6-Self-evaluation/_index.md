@@ -9,7 +9,7 @@ pre: " <b> 6. </b> "
 During my internship at **Amazon Web Services Vietnam Company Limited** from **June 22, 2026** to **August 15, 2026**, I had the opportunity to learn, practice, and apply academic knowledge gained from university into a real-world working environment.  
 I participated in the **RAG on AWS** project, thereby improving my skills in **programming, project deployment, and communication**.  
 
-Regarding work ethic and attitude, I always strived to complete assigned tasks well, adhered to rules and regulations, and actively communicated with colleagues to enhance work efficiency.
+Regarding work ethic and attitude, I always strived to complete assigned tasks well, adhered to rules and regulations, and actively communicated with colleagues within the team to enhance work efficiency.
 
 To objectively reflect on my internship process, I evaluate myself based on the following criteria:
 
