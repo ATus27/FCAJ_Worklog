@@ -8,22 +8,21 @@ pre: " <b> 1.6. </b> "
 
 ### Mục tiêu tuần 6:
 
-* Triển khai Luồng 2 (Hỏi đáp Realtime): Xây dựng bộ nhớ đệm ngữ nghĩa Semantic Cache với ElastiCache Serverless.
-* Tích hợp tìm kiếm Vector k-NN trên OpenSearch Serverless và sinh câu trả lời tự nhiên với Amazon Bedrock (Claude 3).
-* Cấu hình Amazon Bedrock Guardrails, lưu trữ Chat History trên DynamoDB và bảo mật Endpoint bằng API Gateway & Cognito.
+* Triển khai Luồng 3 (Monitoring & Alerting): CloudWatch Custom Metrics, CloudWatch Dashboards, Alarms, SNS Topics và AWS Chatbot tích hợp Slack.
+* Triển khai Luồng 4 (RAGAS Evaluation): Nghiên cứu framework RAGAS, lập lịch EventBridge Scheduler và xây dựng Lambda Evaluation Runner tự động đánh giá chất lượng RAG.
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Triển khai **Amazon ElastiCache Serverless** (Redis) làm lớp **Semantic Cache**.<br>- Xây dựng cơ chế tính Embedding câu hỏi mới ➔ So sánh khoảng cách vector trong Redis Cache. Nếu khớp câu hỏi cũ (Similarity >= 0.90) ➔ Trả về câu trả lời ngay lập tức (Bypass LLM). | 27/07/2026 | 27/07/2026 | Workshop Section 5.4 |
-| 3 | - Nếu Cache Miss: Thực hiện Vector Search k-NN trên OpenSearch Serverless dựa vào embedding câu hỏi ➔ Trích xuất Top-K đoạn ngữ cảnh (context) liên quan nhất. | 28/07/2026 | 28/07/2026 | Workshop Section 5.4 |
-| 4 | - Tích hợp **Amazon Bedrock (Claude 3 Haiku / Sonnet)** để tạo câu trả lời dựa trên ngữ cảnh đã trích xuất.<br>- Cấu hình **Amazon Bedrock Guardrails**: Thiết lập PII Redaction, Topic Blocking, Content Filtering và chống Prompt Injection. | 29/07/2026 | 29/07/2026 | Workshop Section 5.4 |
-| 5 | - Tạo bảng **Amazon DynamoDB** lưu lịch sử hội thoại (Chat History) theo `SessionId` và `Timestamp`.<br>- Triển khai **Amazon API Gateway** + **Amazon Cognito User Pool** để bảo mật các Endpoint API hỏi đáp. | 30/07/2026 | 30/07/2026 | Workshop Section 5.4 |
-| 6 | - **Kiểm thử Luồng 2**: Gửi câu hỏi qua Postman/AWS CLI, kiểm tra tốc độ phản hồi khi Hit Cache vs. Miss Cache, thử nghiệm nhập prompt độc hại để kiểm tra Bedrock Guardrails. | 31/07/2026 | 31/07/2026 | Workshop Section 5.4 & 5.10 |
+| 2 | - **CloudWatch Advanced & Custom Metrics**: Đẩy custom metrics từ Lambda bằng `put_metric_data` (`boto3`); dựng CloudWatch Dashboard tổng quan (Lambda invocation/error rate, API Gateway 4xx/5xx, SQS queue depth). | 27/07/2026 | 27/07/2026 | AWS CloudWatch Documentation |
+| 3 | - **CloudWatch Alarms & SNS Topics**: Tạo alarm riêng cho Lambda Errors, API Gateway 5xx, DLQ Depth (Critical) và Bedrock Throttle (Critical); tạo 2 SNS topic `alerts-info` và `alerts-critical`, subscribe email test. | 28/07/2026 | 28/07/2026 | AWS SNS & CloudWatch Alarms |
+| 4 | - **AWS Chatbot & Tích hợp Slack**: Kết nối AWS Chatbot với Slack Workspace (OAuth authorize), route topic `alerts-critical` vào channel `#rag-alerts`; test gửi thông báo bằng lỗi Lambda giả lập. | 29/07/2026 | 29/07/2026 | AWS Chatbot Guide |
+| 5 | - Tìm hiểu framework **RAGAS** (Faithfulness, Answer Relevancy, Context Precision) và EventBridge Scheduler; tạo rule chạy hàng ngày lúc 2h sáng trigger Lambda đánh giá. | 30/07/2026 | 30/07/2026 | RAGAS Framework Docs |
+| 6 | - Viết Lambda **RAGAS Evaluation Runner**: Lấy mẫu ~20 cặp câu hỏi/câu trả lời từ ChatHistory 24h gần nhất, chấm điểm theo 3 chỉ số, lưu kết quả JSON vào S3 Evaluation Results; chạy thử và tổng hợp tiến độ. | 31/07/2026 | 31/07/2026 | Internal Test & Evaluation |
 
 ### Kết quả đạt được tuần 6:
 
-* **Tối ưu hóa hiệu năng & Chi phí với Semantic Cache**: Thiết lập bộ đệm ngữ nghĩa trên ElastiCache Serverless giúp phản hồi các câu hỏi lặp lại tức thì và tiết kiệm chi phí gọi LLM.
-* **Xây dựng RAG Pipeline hoàn chỉnh**: Kết nối thành công Vector Retrieval từ OpenSearch Serverless với mô hình Claude 3 trên Bedrock.
-* **Bảo mật & Kiểm soát nội dung**: Thiết lập lớp Bedrock Guardrails chống rò rỉ dữ liệu PII / Prompt Injection, đồng thời quản lý lịch sử hội thoại trên DynamoDB và xác thực qua Cognito API Gateway.
+* **Hệ thống quan sát trực quan (Observability)**: Xây dựng thành công CloudWatch Dashboard theo dõi toàn bộ tài nguyên Serverless, đẩy Custom Metrics trực tiếp từ Lambda code.
+* **Cảnh báo sự cố chủ động qua Slack**: Thiết lập CloudWatch Alarms phân tầng thông qua SNS Topics và AWS Chatbot, tự động đẩy alert sự cố critical tức thì vào channel Slack `#rag-alerts`.
+* **Tự động hóa đánh giá RAG (RAGAS Evaluation Pipeline)**: Triển khai thành công Lambda Evaluation Runner kết hợp EventBridge Scheduler chạy định kỳ 2h sáng, tự động lấy mẫu hội thoại và tính toán điểm số Faithfulness, Answer Relevancy, Context Precision xuất báo cáo JSON trên S3.

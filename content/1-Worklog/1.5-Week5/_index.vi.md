@@ -8,22 +8,24 @@ pre: " <b> 1.5. </b> "
 
 ### Mục tiêu tuần 5:
 
-* Khởi tạo hạ tầng Vector Database với Amazon OpenSearch Serverless (AOSS).
-* Thực hiện thuật toán phân đoạn văn bản (Text Chunking).
-* Tích hợp Amazon Bedrock Titan Embeddings để tạo Vector 1536 chiều và lập chỉ mục (Indexing) vào OpenSearch Serverless (Hoàn thiện Luồng 1 - Data Ingestion).
+* Triển khai API Gateway (REST API, CORS) kết hợp xác thực người dùng qua Amazon Cognito User Pool.
+* Tích hợp Amazon ElastiCache (Semantic Cache với cosine similarity) để tối ưu chi phí và thời gian phản hồi.
+* Thiết kế bảng DynamoDB (ChatHistory, FeedbackStore) và thiết lập Bedrock Guardrails (lọc chủ đề nhạy cảm, mask PII).
+* Hoàn thiện và kiểm thử Luồng 2 (Realtime QA Pipeline) end-to-end trên Postman.
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Tìm hiểu dịch vụ **Amazon OpenSearch Serverless (AOSS)** Vector Search Collection.<br>- Viết Terraform triển khai AOSS Collection, Security Policy, Encryption Policy và Network Access Policy.<br>- Cấu hình IAM Data Access Policy cho phép Lambda truy cập AOSS. | 20/07/2026 | 20/07/2026 | Workshop Section 5.3 |
-| 3 | - Tìm hiểu chiến lược phân đoạn văn bản (**Chunking Strategy**): Overlapping Chunks, Fixed-size Chunking (ví dụ: 512 tokens, overlap 50 tokens).<br>- Lập trình module Chunking bằng Python trong Lambda. | 21/07/2026 | 21/07/2026 | Workshop Section 5.3 |
-| 4 | - Tìm hiểu và tích hợp model **Amazon Titan Text Embeddings v1** (`amazon.titan-embed-text-v1`).<br>- Gọi API Bedrock trong Lambda để chuyển các đoạn văn bản thành các vector 1536 chiều. | 22/07/2026 | 22/07/2026 | Workshop Section 5.3 |
-| 5 | - Tạo OpenSearch Vector Index với k-NN vector field type (Distance metric: Cosine / HNSW).<br>- Đẩy danh sách vector cùng metadata (source_file, chunk_id, text_content, page) vào OpenSearch Index. | 23/07/2026 | 23/07/2026 | Workshop Section 5.3 |
-| 6 | - **Kiểm thử End-to-End Luồng 1**: Upload tài liệu phức tạp (file scan nhiều trang) ➔ Xác nhận dữ liệu vector được lập chỉ mục thành công trong OpenSearch Serverless. | 24/07/2026 | 24/07/2026 | Workshop Section 5.3 & 5.10 |
+| 2 | - Triển khai Amazon API Gateway (REST API), bật CORS và tích hợp xác thực người dùng qua Amazon Cognito User Pool. | 20/07/2026 | 20/07/2026 | AWS API Gateway & Cognito Docs |
+| 3 | - Tích hợp Amazon ElastiCache (Redis) làm lớp Semantic Cache, áp dụng độ tương đồng Cosine (Cosine Similarity) để giảm latency và chi phí gọi LLM. | 21/07/2026 | 21/07/2026 | AWS ElastiCache Developer Guide |
+| 4 | - Thiết kế và khởi tạo các bảng Amazon DynamoDB: `ChatHistory` (lưu vết lịch sử hội thoại) và `FeedbackStore` (lưu đánh giá người dùng). | 22/07/2026 | 22/07/2026 | Amazon DynamoDB Docs |
+| 5 | - Xây dựng và thiết lập Amazon Bedrock Guardrails: định nghĩa bộ lọc chủ đề nhạy cảm, ẩn/mask dữ liệu cá nhân (PII) và ngăn chặn Prompt Injection. | 23/07/2026 | 23/07/2026 | Amazon Bedrock Guardrails Guide |
+| 6 | - Tích hợp toàn bộ Luồng 2 và tiến hành kiểm thử end-to-end bằng Postman (kiểm tra Token Auth, Hit/Miss Semantic Cache, Bedrock Guardrails). | 24/07/2026 | 24/07/2026 | Postman API Testing |
 
 ### Kết quả đạt được tuần 5:
 
-* **Làm chủ Vector Database Serverless**: Triển khai thành công Amazon OpenSearch Serverless bằng Terraform kèm các chính sách bảo mật mạng và phân quyền dữ liệu (Data Access Policy).
-* **Xử lý ngữ nghĩa dữ liệu**: Nắm vững kỹ thuật Text Chunking và tạo nhúng vector với Amazon Titan Embeddings v1 trên Bedrock.
-* **Hoàn chỉnh Pipeline Ingestion**: Tự động hóa 100% quy trình từ khi upload tài liệu thô trên S3 cho đến khi dữ liệu được số hóa, vector hóa và lưu trữ sẵn sàng cho tìm kiếm ngữ nghĩa.
+* **Bảo mật & Quản lý người dùng qua API**: Thiết lập REST API Gateway chuẩn hóa có xác thực Cognito User Pool và hỗ trợ CORS cho ứng dụng Web.
+* **Tối ưu hóa hiệu năng & Chi phí**: Tích hợp thành công Semantic Cache trên Amazon ElastiCache, giúp các câu hỏi trùng/tương đương được phản hồi tức thì mà không cần gọi Bedrock LLM.
+* **Bảo vệ dữ liệu & Quản lý hội thoại**: Áp dụng Bedrock Guardrails lọc bỏ PII/nội dung độc hại, đồng thời lưu trữ đầy đủ lịch sử trò chuyện và feedback trên DynamoDB.
+* **Nghiệm thu Luồng 2**: Kiểm thử thành công toàn bộ luồng hỏi đáp thời gian thực qua Postman với độ chính xác cao và thời gian phản hồi ấn tượng.
