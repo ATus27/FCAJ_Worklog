@@ -65,14 +65,16 @@ Of course, being a Data Engineer does not stop at data-specific services. Knowle
 - **Amazon CloudWatch & AWS EventBridge:** To monitor pipelines and automatically trigger alerts when ETL jobs encounter errors.
 - **Infrastructure as Code (Terraform / AWS CDK):** To manage the entire Data Pipeline infrastructure as source code.
 
-đều rất cần thiết. Nhưng ở giai đoạn hiện tại, ưu tiên hàng đầu của mình vẫn là làm chủ luồng đi của dữ liệu từ **Ingestion → Storage → Transformation → Warehouse**.
-## Cuối cùng
-Tham gia AWS Study Group giúp mình nhận ra Data Engineer không chỉ là viết query SQL hay code Python, mà là biết chọn đúng dịch vụ Cloud phù hợp cho từng bài toán dữ liệu, tối ưu được cả về hiệu năng (Performance) lẫn chi phí (Cost) cho doanh nghiệp.
+are all essential. However, at the current stage, my top priority remains mastering the data flow from **Ingestion → Storage → Transformation → Warehouse**.
 
-Ưu tiên tập trung vào bộ dịch vụ S3, Glue, Redshift, Athena, Kinesis chính là con đường ngắn nhất giúp mình sẵn sàng cho các bài toán thực tế của một Data Engineer.
+## Finally
+Participating in the AWS Study Group has helped me realize that being a Data Engineer is not simply about writing SQL queries or Python code. It is also about selecting the right Cloud services for each data-related problem and optimizing both Performance and Cost for the business.
 
-Nếu mọi người cũng đang định hướng theo Data Engineering hoặc Analytics Engineering, rất mong nhận được thêm chia sẻ và góc nhìn từ mọi người!
-Cảm ơn mọi người đã đọc bài viết!
+Focusing on services such as S3, Glue, Redshift, Athena, and Kinesis is, in my opinion, the most direct path toward becoming prepared for real-world Data Engineering challenges.
+
+If you are also pursuing a career in Data Engineering or Analytics Engineering, I would be very interested in hearing your experiences and perspectives!
+
+Thank you for reading!
 
 ## Link
 <https://www.facebook.com/groups/awsstudygroupfcj/permalink/2236445443787082/?rdid=XxPEuBNX5l2ZEBPZ#>
